@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Notes{% endblock %}
+{% block content %}
+    <h1 align="center">Your Notes</h1>
+    <form method="POST" action="/notes">
+        <div class="form-group">
+            <label for="note">Add a new note:</label>
+            <textarea name="note" id="note" class="form-control" rows="3" placeholder="Write your note here..."></textarea>
+        </div>
+        <div align="center">
+            <button type="submit" class="btn btn-primary">Add Note</button>
+        </div>
+    </form>
+    <hr>
+    <h2 align="center">Existing Notes</h2>
+    <ul class="list-group">
+        {% for note in user.notes %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ note.data }}
+            <button class="btn btn-danger btn-sm" onclick="deleteNote({{ note.id }})">Delete</button>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block javascript %}
+    {{ super() }}
+    <script type="text/javascript">
+        function deleteNote(noteId) {
+            fetch("/delete-note", {
+                method: "POST",
+                body: JSON.stringify({ noteId: noteId }),
+            }).then((_res) => {
+                window.location.href = "/notes";
+            });
+        }
+    </script>
+{% endblock %}
+

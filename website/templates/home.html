@@ -1,0 +1,39 @@
+<!-- website/templates/home.html -->
+{% extends "base.html" %}
+{% block title %}Discover Your Favorite Songs{% endblock %}
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Discover Your Next Favorite Song!</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form method="POST" action="/">
+                    <div class="form-group">
+                        <label for="song">Enter a song you like:</label>
+                        <input type="text" name="song" id="song" class="form-control" placeholder="e.g., Shape of You by Ed Sheeran" required />
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-primary btn-lg">Get Recommendations</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr>
+        {% if recommendations %}
+        <h2 class="text-center mt-5">Recommended Songs</h2>
+        <div class="row justify-content-center">
+            {% for song in recommendations %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ song.image_url }}" class="card-img-top album-cover" alt="Cover image for {{ song.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ song.title }}</h5>
+                        <p class="card-text">by {{ song.artist }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
