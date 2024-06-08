@@ -44,8 +44,8 @@ To get a local copy up and running, follow these steps:
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/music-recommendation-system.git
-    cd music-recommendation-system
+    git https://github.com/abey546/Music_recommender.git
+    cd Music_recommender
     ```
 
 2. **Create a virtual environment**:
@@ -96,8 +96,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-- **Your Name**: [LinkedIn](https://www.linkedin.com/in/yourname) | [GitHub](https://github.com/yourusername)
-- **Project Repository**: [GitHub](https://github.com/yourusername/music-recommendation-system)
+- **Your Name**: [LinkedIn](https://www.linkedin.com/in/abey-abdi) | [GitHub](https://github.com/abey546)
+- **Project Repository**: [GitHub](https://github.com/abey546/Music_recommender.git)
 - **Deployed Project**: [Heroku](http://yourproject.herokuapp.com/)
 
 ---
